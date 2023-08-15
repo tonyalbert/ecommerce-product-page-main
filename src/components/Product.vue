@@ -9,7 +9,7 @@
     
         <div class="flex justify-between my-5">
             <div class="flex items-center">
-                <h2 class="text-3xl font-bold opacity-75 mr-3">$125.00</h2>
+                <h2 class="text-3xl font-bold opacity-75 mr-3">${{ valor }}</h2>
                 <span class="bg-pale-orange text-orange font-bold rounded-md px-2 py-1">50%</span>
             </div>
 
@@ -17,9 +17,9 @@
         </div>
 
         <div class="flex justify-between my-8 items-center px-5">
-            <button @click="quantidy > 0 ? quantidy-- : quantidy"><img src="../assets/images/icon-minus.svg" alt=""></button>
+            <button @click="removeItens"><img src="../assets/images/icon-minus.svg" alt=""></button>
             <span class="text-black opacity-75 text-xl font-semibold">{{ quantidy }}</span>
-            <button @click="quantidy++"><img src="../assets/images/icon-plus.svg" alt=""></button>
+            <button @click="addItens"><img src="../assets/images/icon-plus.svg" alt=""></button>
         </div>
 
         <button class="
@@ -52,8 +52,22 @@ export default {
     },
     data(){
         return{
-            quantidy: 0,
+            valor: 125,
+            quantidy: 1,
             cart: []
+        }
+    },
+    methods:{
+        addItens(){
+            this.quantidy++
+            this.valor = this.quantidy * 125
+        },
+        removeItens(){
+            if(this.quantidy > 1){
+                this.quantidy--
+                this.valor = this.quantidy * 125
+            }
+            
         }
     }
 }
