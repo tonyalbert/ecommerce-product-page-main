@@ -1,15 +1,16 @@
 <template>
+    <TheHeader :cartItems="cartItems" />
     <ProductImages /> 
 
     <div class="px-5 py-3">
         <span class="text-orange font-bold text-sm tracking-widest">SNEAKER COMPANY</span>
-        <h1 class="my-3 text-2xl font-black	opacity-75">Fall Limited Edition Sneakers</h1>
+        <h1 class="my-3 text-3xl font-black	opacity-75">Fall Limited Edition Sneakers</h1>
         <p class="text-black opacity-75">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
      
     
         <div class="flex justify-between my-5">
             <div class="flex items-center">
-                <h2 class="text-3xl font-bold opacity-75 mr-3">${{ valor }}</h2>
+                <h2 class="text-3xl font-bold opacity-75 mr-3">${{ price }}</h2>
                 <span class="bg-pale-orange text-orange font-bold rounded-md px-2 py-1">50%</span>
             </div>
 
@@ -22,39 +23,29 @@
             <button @click="addItens"><img src="../assets/images/icon-plus.svg" alt=""></button>
         </div>
 
-        <button class="
-        flex
-        bg-orange
-        text-white 
-        space-x-3 
-        px-5 py-3 
-        rounded-md 
-        w-full 
-        align-center 
-        justify-center 
-        items-center
-        shadow-2xl
-        shadow-orange
-        mb-5
-        ">
-            <img class="stroke-white" src="../assets/images/icon-cart-button.svg" alt="">
-            <span>Add to cart</span>
-        </button>
+        <CartButton :buttonText="buttonText" :clickFunction="addToCart" />
 
     </div> 
 </template>
 
 <script>
 import ProductImages from './ProductImages.vue';
+import TheHeader from './TheHeader.vue'
+import CartButton from './CartButton.vue';
+
 export default {
     components: {
-        ProductImages
+        ProductImages,
+        TheHeader,
+        CartButton
     },
     data(){
         return{
-            valor: 125,
+            productName: 'Fall Limited Edition Sneakers',
+            price: 125,
             quantidy: 1,
-            cart: []
+            cartItems: [],
+            buttonText: 'Add to cart'
         }
     },
     methods:{
@@ -66,8 +57,13 @@ export default {
             if(this.quantidy > 1){
                 this.quantidy--
                 this.valor = this.quantidy * 125
-            }
-            
+            }   
+        },
+        addToCart(){
+            this.cartItems.push({
+                name: this.productName,
+                price: this.price
+            })
         }
     }
 }

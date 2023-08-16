@@ -1,12 +1,12 @@
 <template>
     <div class="relative">
-        <button @click="previousImage" class="bg-white px-4 py-3 rounded-full absolute bottom-1/2 left-4">
+        <button @click="previousImage" class="bg-white px-4 py-3 rounded-full absolute bottom-1/2 left-4 focus:outline-none">
             <img class="" src="../assets/images/icon-previous.svg" alt="">
         </button>
 
         <img class="w-full h-80 object-cover" :src="currentImage" alt="">
 
-        <button @click="nextImage" class="bg-white px-4 py-3 rounded-full absolute bottom-1/2 right-4">
+        <button @click="nextImage" class="bg-white px-4 py-3 rounded-full absolute bottom-1/2 right-4 focus:outline-none">
             <img src="../assets/images/icon-next.svg" alt="">
         </button>
     </div>
