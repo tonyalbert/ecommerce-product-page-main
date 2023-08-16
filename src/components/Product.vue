@@ -72,6 +72,7 @@ export default {
                 })
             }
             this.quantidy = 1
+            this.price = 125
         },
         removeItens(){
             this.cartItems = []
