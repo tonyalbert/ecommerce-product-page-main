@@ -1,12 +1,21 @@
 <template>
     <div class="relative">
-        <button @click="previousImage" class="bg-white px-4 py-3 rounded-full absolute bottom-1/2 left-4 focus:outline-none">
+        <button @click="previousImage" class="lg:hidden bg-white px-4 py-3 rounded-full absolute bottom-1/2 left-4 focus:outline-none">
             <img class="" src="../assets/images/icon-previous.svg" alt="">
         </button>
 
-        <img class="w-full h-80 object-cover" :src="currentImage" alt="">
+        <div>
+            <img class="w-full h-80 lg:h-[34rem] lg:rounded-xl object-cover" :src="currentImage" alt="">
+            <div class="hidden lg:flex justify-between mt-10">
+                <img class="w-28 h-28 rounded-xl hover:border-[3px]	border-orange hover:opacity-60" src="../assets/images/image-product-1-thumbnail.jpg" alt="">
+                <img class="w-28 h-28 rounded-xl hover:border-[3px]	border-orange hover:opacity-60" src="../assets/images/image-product-2-thumbnail.jpg" alt="">
+                <img class="w-28 h-28 rounded-xl hover:border-[3px]	border-orange hover:opacity-60" src="../assets/images/image-product-3-thumbnail.jpg" alt="">
+                <img class="w-28 h-28 rounded-xl hover:border-[3px]	border-orange hover:opacity-60" src="../assets/images/image-product-4-thumbnail.jpg" alt="">
+            </div>
+        </div>
 
-        <button @click="nextImage" class="bg-white px-4 py-3 rounded-full absolute bottom-1/2 right-4 focus:outline-none">
+
+        <button @click="nextImage" class="lg:hidden bg-white px-4 py-3 rounded-full absolute bottom-1/2 right-4 focus:outline-none">
             <img src="../assets/images/icon-next.svg" alt="">
         </button>
     </div>
