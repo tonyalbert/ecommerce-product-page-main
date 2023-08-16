@@ -51,12 +51,12 @@ export default {
     methods:{
         addItens(){
             this.quantidy++
-            this.valor = this.quantidy * 125
+            this.price = this.quantidy * 125
         },
         removeItens(){
             if(this.quantidy > 1){
                 this.quantidy--
-                this.valor = this.quantidy * 125
+                this.price = this.quantidy * 125
             }   
         },
         addToCart(){

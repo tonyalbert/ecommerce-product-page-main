@@ -53,6 +53,8 @@ export default {
         },
         removeItens() {
             this.cartItems = []
+            console.log(this.cartItems)
+            console.log('removeItens')
         }
     }
 }
